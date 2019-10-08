@@ -60,6 +60,9 @@ export default class PercentageChart extends AggregationChart {
 		let xPos = 0;
 		s.sliceTotals.map((value) => {
 			let width = this.width * value / s.grandTotal;
+			if (!width) {
+				width = 0;
+			}
 			s.widths.push(width);
 			s.xPositions.push(xPos);
 			xPos += width;
